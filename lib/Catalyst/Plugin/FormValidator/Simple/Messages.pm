@@ -6,7 +6,7 @@ use base qw/Catalyst::Plugin::FormValidator::Simple/;
 use Catalyst::Exception;
 use YAML;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 sub setup {
     my $self = shift;
@@ -32,6 +32,14 @@ sub form {
         $c->{validator}->set_message_format($setting->{message_format}) if exists $setting->{message_format};
     }
     $c->NEXT::form(@_);
+}
+
+sub set_invalid_form {
+    my $c = shift;
+    my $setting = $c->config->{validator} || {};
+    $c->{validator}->set_messages($setting->{messages})             if exists $setting->{messages};
+    $c->{validator}->set_message_format($setting->{message_format}) if exists $setting->{message_format};
+    $c->NEXT::set_invalid_form(@_);
 }
 
 1;

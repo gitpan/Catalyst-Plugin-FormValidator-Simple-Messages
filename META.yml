@@ -18,4 +18,4 @@ requires:
   Catalyst: 5.30
   Catalyst::Plugin::FormValidator::Simple: 0.12
   YAML: 0
-version: 0.01
+version: 0.02

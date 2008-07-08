@@ -16,7 +16,7 @@ Catalyst::Plugin::FormValidator::Simple::Messages::Nihongo - mod_perl上での�
 
 mod_perl上で複数のCatalystアプリケーションを走らせる場合、C::P::FormValidator::Simpleのメッセージの値がサーバーで共通のものになってしまいます。
 
-それを回避するためにformメソッドに引数が渡された場合にのみメッセージを設定し直すようにします。
+それを回避するためにformメソッドに引数が渡された場合、もしくはset_invalid_formメソッドが呼ばれた場合にメッセージを設定し直すようにします。
 
 １つのCatalystアプリケーションしか走らせないケースでは今まで通りC::P::FormValidator::Simpleを使うのが良いかと思います。
 
